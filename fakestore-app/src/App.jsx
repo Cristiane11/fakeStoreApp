@@ -2,6 +2,7 @@
 import Home from './components/Home'
 import AddProduct from './components/AddProduct'
 import ProductDetails from './components/ProductDetails'
+import ProductList from './components/ProductList'
 
 import './App.css'
 
@@ -13,6 +14,7 @@ function App() {
     <Home/>
     <AddProduct />
     <ProductDetails/>
+    <ProductList/>
      
     </>
   )
