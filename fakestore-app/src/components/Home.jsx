@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <>
-      <h1>Welcome to the Store</h1>
+      <h1 className="mt-5">Welcome to the Store</h1>
     </>
   )
 }
