@@ -78,3 +78,10 @@ border-radius: 8px;
   background-color: aqua;
   color:#646cff;
 }
+.product-image{
+  width: 200px;
+  margin:auto;
+}
+.product-card{
+  width: 600px;
+}

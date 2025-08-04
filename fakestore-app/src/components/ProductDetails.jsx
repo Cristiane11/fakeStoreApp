@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
+import Button from 'react-bootstrap/Button';
 
-const ProductDetails = ()=> {
+function ProductDetails() {
  const {id} = useParams();
  const[product, setProduct] = useState(null);
  const[loading, setLoading]= useState(true);
@@ -19,26 +20,24 @@ useEffect(()=>{
   .catch((error)=>{
     setError("Failed to Fetch Products");
     setLoading(false);
-  })
-},[id]);
+  });
+}, [id]);
+
 if (loading) return <p>Loading Products...</p>;
 if (error) return <p>{error}</p>;
 
    return (
-    <>
       <Container>
-        <Card>
-          <Card.Img variant="top" src={product.image} alt={product.title}/>
+        <Card className="product-card">
+          <Card.Img className="product-image" variant="top" src={product.image} alt={product.title}/>
           <Card.Body>
               <Card.Title>{product.title}</Card.Title>
-              <Card.Text>{product.description} | <span> {product.category}</span></Card.Text>
+              <Card.Text>{product.description} |<span> {product.category}</span></Card.Text>
               <Card.Text>${product.price}</Card.Text>
               <Button variant="primary">Buy Now</Button>
           </Card.Body>
         </Card>
       </Container>
-
-    </>
   )
 }
 

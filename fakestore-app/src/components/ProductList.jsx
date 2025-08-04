@@ -41,7 +41,7 @@ if (error) return <p>{error}</p>;
                   <Card.Img variant="top" src={product.image} alt ={product.title}/>
                   <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
-                    <Card.Text> {product.price}</Card.Text>
+                    <Card.Text>${product.price}</Card.Text>
                   </Card.Body>
                   <Link className="custom-button" to={`/products/${product.id}`}>View Details</Link>
                  </Card>
