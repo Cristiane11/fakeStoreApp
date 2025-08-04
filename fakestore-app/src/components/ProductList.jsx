@@ -33,7 +33,6 @@ if (error) return <p>{error}</p>;
 
   return (
     <>
-      <h1 className="mt-5">Products Lists</h1>
         <Container>
           <Row>
             {products.map((product)=>(
@@ -44,7 +43,7 @@ if (error) return <p>{error}</p>;
                     <Card.Title>{product.title}</Card.Title>
                     <Card.Text> {product.price}</Card.Text>
                   </Card.Body>
-                  <Link to={`/products/${product.id}`}>View Details</Link>
+                  <Link className="custom-button" to={`/products/${product.id}`}>View Details</Link>
                  </Card>
               </Col>
             ))}
