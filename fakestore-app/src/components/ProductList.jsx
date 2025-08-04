@@ -28,7 +28,7 @@ useEffect(()=>{
   })
 },[]);
 
-if (loading === true) return <p>Loading Products...</p>;
+if (loading ) return <p>Loading Products...</p>;
 if (error) return <p>{error}</p>;
 
   return (
