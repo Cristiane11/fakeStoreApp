@@ -8,18 +8,33 @@ import {Link} from "react-router";
 
 
 function ProductList() {
- const [loading, setLoading] = useState(true);
- const [error, setError] = useState(null);
- const [ count, setCount] = useState(0);
+  const[products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const incrementCount = () => {
-    setCount (count + 1) ;
-  }
+ {/** useEffect only runs once on the initial component render, at least if you have an empty dependency array. If we add other variables into the dependency array, then we list them as dependencies. 
+  And if the value of any dependency changes, then useEffect() runs again.  https://fakestoreapi.com/docs#tag/Products/operating/getAllProducts*/}
+
+useEffect(()=>{
+  axios
+  .get('https://fakestoreapi.com/products')
+  .then((response) =>{
+    setProducts(response.data);
+    setLoading(false);
+  })
+  .catch((error) =>{
+    setError("Failed to Fetch Products");
+    setLoading(false);
+  })
+},[]);
+
+if (loading)  return <p>Loading Products...</p>;
+if(error) return <p>{error}</p>;
+
   return (
     <>
       <h1 className="mt-5">Products Lists</h1>
-      <p>Count: {count}</p>
-      <button onClick = {incrementCount}>Click Me</button>
+  
     </>
   )
 }
