@@ -22,7 +22,7 @@ useEffect(()=>{
     setProducts(response.data);
     setLoading(false);
   })
-  .catch((error) =>{
+  .catch((error) => {
     setError("Failed to Fetch Products");
     setLoading(false);
   })
@@ -34,25 +34,23 @@ if (error) return <p>{error}</p>;
   return (
     <>
       <h1 className="mt-5">Products Lists</h1>
-   <Container>
-    <Row>
-      {products.map((product)=>(
-        <Col key={product.id} md={4} className="mb-3">
-          
-            <Card.Img variant="top" src={product.image} alt ={product.title}/>
-            <Card.Body>
-              <Card.Title>{product.title}</Card.Title>
-              <Card.Text>
-                {product.description}
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-      
-        </Col>
-      ))}
-    </Row>
+        <Container>
+          <Row>
+            {products.map((product)=>(
+              <Col key={product.id} md={4} className="mb-3">
+                <Card>
+                  <Card.Img variant="top" src={product.image} alt ={product.title}/>
+                  <Card.Body>
+                    <Card.Title>{product.title}</Card.Title>
+                    <Card.Text> {product.price}</Card.Text>
+                  </Card.Body>
+                  <Link to={`/products/${product.id}`}>View Details</Link>
+                 </Card>
+              </Col>
+            ))}
+          </Row>
 
-   </Container>
+        </Container>
   
     </>
   )
